@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link href="__CSS__/bootstrap.min.css" rel="stylesheet">
+	<link href="__CSS__/buttons.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="__CSS__/index2.css">
+	<script src="__JS__/jquery-3.3.1.min.js"></script>
+	<script src="__JS__/bootstrap.min.js"></script>
+	<script type="text/javascript" src="__JS__/login.js" ></script>
+	<title>图书管理系统-主页</title>
+</head>
+<body>
+	<nav class="navbar navbar-fixed-top navbar-inverse">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <!-- <a class="navbar-brand" href="#">图书馆</a> -->
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+	          <ul class="nav navbar-nav">
+	            <!-- <li class="active"><a href="#">主页</a></li> -->
+	            <li><a href="{:url('index/upload')}">图书上传</a></li>
+	            <li><a href="{:url('index/page')}">搜索图书</a></li>
+	          </ul>
+
+				<!-- <a class="ha" href="/">退出</a> -->
+				<form action="page" method="post" class="form-inline">
+	    <input class="form-control mr-sm-6 sea" type="search" name="search" placeholder="快速搜索" aria-label="Search">
+
+       	<button class="button button-small button-plain button-border " type="submit">Search</button>
+			    
+	</form>
+        </div><!-- /.nav-collapse -->
+      </div><!-- /.container -->
+    </nav><!-- /.navbar -->
+     
+	<div class="container">
+
+      <div class="row row-offcanvas row-offcanvas-right">
+
+        <div class="col-xs-12 col-sm-9">
+          <p class="pull-right visible-xs">
+            <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
+          </p>
+          <div class="jumbotron box1">
+            <h1>图书管理系统</h1>
+            <p></p>
+          </div>
+        </div>
+      </div>
+
+
+		<div>
+			<div class="col-md-9">
+				{volist name="bookin" id="bk" empty="null"}
+					<div class="books">
+						<div class="tb">
+							<h4>{$bk.name}</h4>
+							<p>作者：{$bk.writer}</p>
+							<p>出版社：{$bk.publisher}</p>
+							<p>ISBN：{$bk.ISBN}</p>
+						</div>
+						<div>
+							<img src="__STATIC__/upload/{$bk.ims}">
+						</div>
+					</div>
+				{/volist}
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>

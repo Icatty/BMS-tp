@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link href="__CSS__/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="__CSS__/index2.css">
+	<script src="__JS__/jquery-3.3.1.min.js"></script>
+	<script src="__JS__/bootstrap.min.js"></script>
+	<script type="text/javascript" src="__JS__/login.js" ></script>
+	<title>图书管理系统-搜索</title>
+</head>
+<body>
+	<div class="home_nav" id="home_nav" style="">
+	<nav class="navbar navbar-default">
+		<div class="container">
+	<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<a class="navbar-brand " href="/"><h1>图 书 馆</h1></a>
+			</div>
+	<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<div class="nav">
+					<ul id="global-nav" class="nav navbar-nav  home_top_nav navbar-right">
+					<li><a href="javascript:;" id="nav2-event"></a></li>
+					<li><a href="{:url('index/index')}" id="nav2-product">返回</a></li>
+					</ul>
+				</div>
+			</div><!-- /.navbar-collapse -->
+		</div><!-- /.container-fluid -->
+	</nav>
+	</div>
+	<div class="container">
+		<form action="page" method="post" class="form-inline">
+		    <input class="form-control mr-sm-6" type="search" name="search" placeholder="Search" aria-label="Search">
+		    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+		</form>
+		<div>
+			<div class="col-md-9">
+				{volist name="booksc" id="bk" empty="null"}
+					<div class="books">
+						<div class="tb">
+							<h4>{$bk.name}</h4>
+							<p>作者：{$bk.writer}</p>
+							<p>出版社：{$bk.publisher}</p>
+							<p>ISBN：{$bk.ISBN}</p>
+						</div>
+						<div>
+							<img src="__UPLOAD__/{$bk.ims}">
+						</div>
+					</div>
+				{/volist}
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>
